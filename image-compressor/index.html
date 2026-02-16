@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Image Compressor Online Free – Reduce Image Size Without Losing Quality</title>
+
+<meta name="description" content="Compress JPG and PNG images online free. Reduce image size without losing quality using our secure browser-based image compressor.">
+
+<meta name="keywords" content="compress image online, reduce image size, compress jpg to 50kb, free photo compressor">
+
+<link rel="canonical" href="https://yourdomain.com/image-compressor/">
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [{
+   "@type": "Question",
+   "name": "Is this image compressor free?",
+   "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes, this tool is completely free and works in your browser."
+   }
+ }]
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>Image Compressor Online</h1>
+
+<div class="ad">
+<script src="YOUR_ADSTERRA_CODE"></script>
+</div>
+
+<input type="file" id="img">
+<input type="range" id="quality" min="10" max="90" value="70">
+<button onclick="compressImage()">Compress Image</button>
+<br><a id="download"></a>
+
+<section>
+<h2>Compress Images Without Losing Quality</h2>
+
+<p>
+Our free image compressor online allows you to reduce image file size quickly
+and easily. Large images slow down websites and reduce SEO ranking. By compressing
+images properly, you improve page speed and user experience.
+</p>
+
+<p>
+This tool supports JPG and PNG formats. Many users search for how to compress
+image to 50KB, reduce image size for email, or optimize images for websites.
+Our tool works directly inside your browser, ensuring full privacy and security.
+</p>
+
+<p>
+Using the quality slider above, you can adjust compression level. Lower values
+reduce file size more, while higher values preserve better visual quality.
+The compression process is instant and works on both desktop and mobile devices.
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is this image compressor free?</h3>
+<p>Yes, it is completely free to use.</p>
+
+<h3>Does this tool upload images?</h3>
+<p>No, everything runs inside your browser.</p>
+
+<h3>Can I compress PNG images?</h3>
+<p>Yes, both JPG and PNG formats are supported.</p>
+
+</section>
+
+<div class="ad">
+<script src="YOUR_ADSTERRA_CODE"></script>
+</div>
+
+<a href="../index.html">Back to Home</a>
+
+<script>
+function compressImage(){
+ const file = img.files[0];
+ const image = new Image();
+ image.src = URL.createObjectURL(file);
+ image.onload = function(){
+  const canvas = document.createElement("canvas");
+  canvas.width = image.width;
+  canvas.height = image.height;
+  canvas.getContext("2d").drawImage(image,0,0);
+
+  canvas.toBlob(function(blob){
+   download.href = URL.createObjectURL(blob);
+   download.download = "compressed.jpg";
+   download.innerText = "Download Compressed Image";
+  },"image/jpeg", quality.value/100);
+ }
+}
+</script>
+
+</body>
+</html>
