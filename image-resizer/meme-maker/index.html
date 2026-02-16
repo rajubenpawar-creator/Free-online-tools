@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Meme Maker Online – Free Meme Generator</title>
+<meta name="description" content="Create memes online free. Add text to image and download instantly.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<h1>Meme Maker Online</h1>
+
+<input type="file" id="img">
+<input type="text" id="text" placeholder="Enter meme text">
+<button onclick="createMeme()">Create Meme</button>
+
+<br>
+<canvas id="canvas"></canvas>
+<br>
+<a id="download"></a>
+
+<script>
+function createMeme(){
+ const image = new Image();
+ image.src = URL.createObjectURL(img.files[0]);
+ image.onload = function(){
+  canvas.width = image.width;
+  canvas.height = image.height;
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(image,0,0);
+  ctx.font="40px Impact";
+  ctx.fillStyle="white";
+  ctx.strokeStyle="black";
+  ctx.lineWidth=3;
+  ctx.fillText(text.value,20,50);
+  ctx.strokeText(text.value,20,50);
+  download.href = canvas.toDataURL();
+  download.download="meme.png";
+  download.innerText="Download Meme";
+ }
+}
+</script>
+
+<a href="../index.html">Back to Home</a>
+
+</body>
+</html>
